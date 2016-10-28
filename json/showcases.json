@@ -1,0 +1,36 @@
+{
+  "showCase": [
+    {
+      "icon": "fa-plus-square",
+      "name": "Menu Extension",
+      "href": "#menu-extension"
+    },
+    {
+      "icon": "fa-circle-o-notch",
+      "name": "Scroll Loading",
+      "href": "#scroll-loading"
+    },
+    {
+      "icon": "fa-arrow-circle-o-down",
+      "name": "Pull-Down Refresh",
+      "href": "#pull-down"
+    },
+    {
+      "icon": "fa-arrow-circle-o-up",
+      "name": "Pull-Up Refresh",
+      "href": "#pull-up"
+    },
+    {
+      "icon": "fa-exchange",
+      "name": "Horizontal Swipe",
+      "href": "#horizontal-swipe"
+    }
+  ],
+  "canvasPractise": [
+    {
+      "icon": "fa-futbol-o",
+      "name": "Bouncy Ball",
+      "href": "#bouncy-ball"
+    }
+  ]
+}

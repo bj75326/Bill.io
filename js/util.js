@@ -1,0 +1,103 @@
+/**
+ * Created by Bill on 2016/10/14.
+ */
+define(["jQuery", "underscore", "Backbone", "handlebars"]
+    , function($, _, Backbone, Handlebars){
+
+        var util = {};
+
+        util.loadHandlebarTemplate = function(htmlTemplate, jsonData, el, appendYN){
+
+            var compiledTemplate = Handlebars.compile(htmlTemplate);
+
+            var elem = document.querySelector(el);
+
+            if(elem){
+
+                appendYN || this.cleanElement(el);
+
+                var content = compiledTemplate(jsonData);
+                var divTemp = document.createElement("div");
+                var nodes;
+                var fragment = document.createDocumentFragment();
+
+                divTemp.innerHTML = content;
+                nodes = divTemp.childNodes;
+
+                for(var i= 0, len=nodes.length; i<len; i++){
+                    fragment.appendChild(nodes[i].cloneNode(true));
+                }
+                elem.appendChild(fragment);
+
+                nodes = null;
+                fragment = null;
+            }
+
+        };
+
+        //insertBefore
+        util.loadHandlebarTemplate2 = function(htmlTemplate, jsonData, el){
+
+            var compiledTemplate = Handlebars.compile(htmlTemplate);
+
+            var elem = document.querySelector(el);
+
+            if(elem && elem.firstChild){
+                var content = compiledTemplate(jsonData);
+                var divTemp = document.createElement("div");
+                var nodes;
+                var fragment = document.createDocumentFragment();
+
+                divTemp.innerHTML = content;
+                nodes = divTemp.childNodes;
+                for(var i= 0, len=nodes.length; i<len; i++){
+                    fragment.appendChild(nodes[i].cloneNode(true));
+                }
+                elem.insertBefore(fragment, elem.firstChild);
+
+                nodes = null;
+                fragment = null;
+            }
+        };
+
+        util.switchBackgroundColor = function(homeYN){
+            if(homeYN){
+                document.documentElement.setAttribute("style", "background-color: #f2f2f2");
+                document.body.setAttribute("style", "background-color: #f2f2f2");
+            }else{
+                document.documentElement.setAttribute("style", "background-color: #fafafa");
+                document.body.setAttribute("style", "background-color: #fafafa");
+            }
+        };
+
+        util.setViewportHeight = function(){
+            var elem = document.querySelector(".viewport");
+            var subtitle = document.querySelector(".subtitle");
+
+            if(elem){
+                elem.setAttribute("style", "height: " + (window.innerHeight - subtitle.offsetHeight) + "px");
+            }
+        };
+
+        util.cleanElement = function(el){
+            var elem = document.querySelector(el);
+            if(elem){
+                var nodes = elem.childNodes;
+                for(var i= 0, len= nodes.length; i<len; i++){
+                    elem.removeChild(elem.childNodes[0]);
+                }
+            }
+        };
+
+        util.switchSpin = function(el){
+            var spin = document.querySelector(el);
+            var style = spin.getAttribute("class");
+            if(style && style.indexOf("hidden") < 0){
+                spin.setAttribute("class", style.replace(/(^\s+)|(\s+$)/g, "") + " hidden");
+            }else{
+                spin.setAttribute("class", style.replace(/hidden/, "").replace(/(^\s+)|(\s+$)/g, ""));
+            }
+        };
+
+        return util;
+});
