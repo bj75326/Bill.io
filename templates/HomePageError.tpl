@@ -1,4 +1,4 @@
-<div class="error">
-    <div>(╯°Д°)╯ {{status}} </div>
-    <div>加载错误，这么滴吧。。。</div>
+<div class="">
+    <p class="sorry">(╯°Д°)╯ {{status}} </p>
+    <p class="sorry">加载错误...</p>
 </div>

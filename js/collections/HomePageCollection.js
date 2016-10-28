@@ -8,7 +8,7 @@ define(["jQuery", "underscore", "Backbone",
         var HomePageCollection = Backbone.Collection.extend({
             model: HomePageModel,
 
-            url: "/Popstate/Bill.io/json/showcases.json",
+            url: "/Bill.io/json/showcases.json",
 
             /*
              This function is used to handle the response received from the server

@@ -8,7 +8,7 @@ define(["jQuery", "underscore", "Backbone",
         var ScrollLoadingCollection = Backbone.Collection.extend({
             model: ScrollLoadingModel,
 
-            url: "/Popstate/Bill.io/json/scrollLoading.json",
+            url: "/Bill.io/json/scrollLoading.json",
 
             /*
              This function is used to handle the response received from the server
