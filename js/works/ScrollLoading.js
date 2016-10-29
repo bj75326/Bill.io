@@ -175,7 +175,7 @@ define([], function(){
                         var arrContent = value["content"];
                         var strContent = "";
                         arrContent.forEach(function(value, index){
-                            strContent += '<div class="scrollloading-card"><section>' + (page * 10 + +value["content"])+ '</section></div>'
+                            strContent += '<div class="scrollloading-card"><section>' + (page * 20 + +value["content"])+ '</section></div>'
                         });
                         //console.log(strContent);
                         Bin.parseHTMLString(strContent, viewport, spin);
@@ -195,7 +195,7 @@ define([], function(){
         };
 
         //函数节流处理
-        var debouncedFn = Bin.debounce(50, scrollFn);
+        var debouncedFn = Bin.debounce(100, scrollFn);
 
         //事件绑定
         Bin.on(viewport, "scroll", debouncedFn, false);
