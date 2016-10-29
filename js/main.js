@@ -15,11 +15,11 @@ requirejs.config({
     },
 
     paths: {
-        jQuery : "libs/jQuery/jquery",
-        underscore : "libs/underscore/underscore",
-        Backbone : "libs/Backbone/backbone",
+        jQuery : "libs/jQuery/jquery.min",
+        underscore : "libs/underscore/underscore-min",
+        Backbone : "libs/Backbone/backbone-min",
         Bin : "libs/BinJS/Bin",
-        handlebars : "libs/handlebars/handlebars",
+        handlebars : "libs/handlebars/handlebars.amd.min",
         AppRouter : "router",
         text : "libs/require-text/text",
         util : "util",
