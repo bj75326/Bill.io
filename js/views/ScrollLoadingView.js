@@ -19,6 +19,7 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
             },
             render: function(){
                 util.switchBackgroundColor(false);
+                util.closeOverLayer();
                 util.loadHandlebarTemplate(ScrollLoadingTpl, {}, ".page");
                 util.setViewportHeight();
                 objScrollLoadingCollection.fetch({
@@ -41,8 +42,14 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
                         util.switchSpin(".viewport .spin");
                     }
                 });
+            },
+            events: {
+                "click .page-back>a": "overLayerHandler"
+            },
+            overLayerHandler: function(){
+                util.openOverLayer();
+                this.undelegateEvents();
             }
-
         });
 
         return ScrollLoadingView;

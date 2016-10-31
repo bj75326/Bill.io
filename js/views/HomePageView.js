@@ -22,6 +22,7 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
                 },
                 render: function(){
                     util.switchBackgroundColor(true);
+                    util.closeOverLayer();
                     util.loadHandlebarTemplate(HomePageTpl, {}, ".page");
                     objShowCaseCollection.fetch({
                         success: function(collection, resp){
@@ -58,8 +59,13 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
                     });
                 },
                 events: {
-
+                    "click .showcases>a": "overLayerHandler"
+                },
+                overLayerHandler: function(){
+                    util.openOverLayer();
+                    this.undelegateEvents(); //temp
                 }
             });
+
             return HomePageView;
 });

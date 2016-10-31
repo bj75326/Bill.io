@@ -195,7 +195,7 @@ define([], function(){
         };
 
         //函数节流处理
-        var debouncedFn = Bin.debounce(100, scrollFn);
+        var debouncedFn = Bin.debounce(60, scrollFn);
 
         //事件绑定
         Bin.on(viewport, "scroll", debouncedFn, false);
