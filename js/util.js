@@ -62,11 +62,15 @@ define(["jQuery", "underscore", "Backbone", "handlebars"]
 
         util.switchBackgroundColor = function(homeYN){
             if(homeYN){
-                document.documentElement.setAttribute("style", "background-color: #f2f2f2");
-                document.body.setAttribute("style", "background-color: #f2f2f2");
+                //document.documentElement.setAttribute("style", "background-color: #f2f2f2");
+                //document.body.setAttribute("style", "background-color: #f2f2f2");
+                document.documentElement.style.backgroundColor = "#f2f2f2";
+                document.body.style.backgroundColor = "#f2f2f2";
             }else{
-                document.documentElement.setAttribute("style", "background-color: #fafafa");
-                document.body.setAttribute("style", "background-color: #fafafa");
+                //document.documentElement.setAttribute("style", "background-color: #fafafa");
+                //document.body.setAttribute("style", "background-color: #fafafa");
+                document.documentElement.style.backgroundColor = "#fafafa";
+                document.body.style.backgroundColor = "#fafafa";
             }
         };
 
@@ -98,6 +102,18 @@ define(["jQuery", "underscore", "Backbone", "handlebars"]
                 spin.setAttribute("class", style.replace(/hidden/, "").replace(/(^\s+)|(\s+$)/g, ""));
             }
         };
+
+        util.closeOverLayer = function(){
+            var overlayer = document.querySelector(".overlayer");
+            overlayer.setAttribute("style", "display: none");
+            document.body.style.overflow = "";
+        };
+
+        util.openOverLayer = function(){
+            var overlayer = document.querySelector(".overlayer");
+            overlayer.setAttribute("style", "");
+            document.body.style.overflow = "hidden";
+        }
 
         return util;
 });

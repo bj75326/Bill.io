@@ -11,6 +11,11 @@ requirejs.config({
         "Bin": {
             deps : [],
             exports : "Bin"
+        },
+
+        "FastClick" : {
+            deps : [],
+            exports : "FastClick"
         }
     },
 
@@ -20,6 +25,7 @@ requirejs.config({
         Backbone : "libs/Backbone/backbone-min",
         Bin : "libs/BinJS/Bin",
         handlebars : "libs/handlebars/handlebars.amd.min",
+        FastClick : "libs/FastClick/fastclick.min",
         AppRouter : "router",
         text : "libs/require-text/text",
         util : "util",
@@ -28,11 +34,14 @@ requirejs.config({
 });
 
 //Start main app logic...
-requirejs(["jQuery", "underscore", "Backbone", "handlebars", "AppRouter", "Bin", "util"]
-, function($, _, Backbone, Handlebars, AppRouter, Bin, util){
+requirejs(["jQuery", "underscore", "Backbone", "handlebars", "AppRouter", "FastClick", "Bin", "util"]
+, function($, _, Backbone, Handlebars, AppRouter, FastClick, Bin, util){
 
         //system entry...
         console.log("system entry...");
         var appRouter = new AppRouter();
         Backbone.history.start();
+
+        //FastClick put here...
+        FastClick.attach(document.body);
 });
