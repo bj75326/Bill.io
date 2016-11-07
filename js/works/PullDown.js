@@ -109,7 +109,7 @@ define([], function(){
          *
          */
 
-        //±äÁ¿³õÊ¼»¯
+        //å˜é‡åˆå§‹åŒ–
         var isTouched = false;
         var isLocked = false;
         var isRefresh = false;
