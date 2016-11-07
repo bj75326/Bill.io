@@ -8,6 +8,7 @@ define(["jQuery", "Backbone"], function($, Backbone){
             'menu-extension' : 'showMenuExtension',
             'scroll-loading' : 'showScrollLoading',
             'horizontal-swipe' : 'showSwipe',
+            'pull-down' : 'showPullDown',
             'error' : 'showError'
         },
 
@@ -28,6 +29,14 @@ define(["jQuery", "Backbone"], function($, Backbone){
             requirejs(["/Bill.io/js/views/ScrollLoadingView.js"], function(ScrollLoadingView){
                 var objScrollLoadingView = new ScrollLoadingView();
                 objScrollLoadingView.render();
+            });
+        },
+
+        showPullDown: function(){
+            console.log("within showPullDown...");
+            requirejs(["/Bill.io/js/views/PullDownView.js"], function(PullDownView){
+                var objPullDownView = new PullDownView();
+                objPullDownView.render();
             });
         }
 

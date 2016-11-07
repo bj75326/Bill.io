@@ -333,3 +333,77 @@ a {
 
 /*style for scrollLoading end*/
 
+/*style for pulldown start*/
+.pulldown{
+    overflow: hidden;
+}
+
+.pulldown-content.is-dropped {
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+.pulldown-content.is-dropped-slow {
+    -webkit-transition: .6s;
+    transition: .6s;
+}
+
+.pulldown-top {
+    margin-top: -50px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.pulldown-top span{
+    display: inline-block;
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+    vertical-align: middle;
+}
+
+.pulldown-top .is-rotated {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.pulldown-top .pulldown-tips {
+    font-size: 1.1rem;
+    color: #999;
+}
+
+.spinner-snake {
+    -webkit-animation: mint-spinner-rotate .8s infinite linear;
+    animation: mint-spinner-rotate .8s infinite linear;
+    border: 4px solid transparent;
+    border-radius: 50%;
+
+}
+
+@keyframes mint-spinner-rotate
+{
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn);
+    }
+}
+
+@-webkit-keyframes mint-spinner-rotate /*Safari and Chrome*/
+{
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn);
+    }
+}
+/*style for pulldown end*/
+
