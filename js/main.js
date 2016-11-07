@@ -29,7 +29,8 @@ requirejs.config({
         AppRouter : "router",
         text : "libs/require-text/text",
         util : "util",
-        scrollLoading : "works/ScrollLoading"
+        ScrollLoading : "works/ScrollLoading",
+        PullDown : "works/PullDown"
     }
 });
 

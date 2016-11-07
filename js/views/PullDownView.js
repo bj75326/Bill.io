@@ -1,48 +1,51 @@
 /**
- * Created by Bill on 2016/10/17.
+ * Created by Bill on 2016/11/1.
  */
 define(["jQuery", "underscore", "Backbone", "handlebars", "util"
-        , "/Bill.io/js/collections/ScrollLoadingCollection.js"
-        , "text!/Bill.io/templates/ScrollLoading.tpl"
+        , "/Bill.io/js/collections/PullDownCollection.js"
+        , "text!/Bill.io/templates/PullDown.tpl"
         , "text!/Bill.io/templates/ScrollLoadContent.tpl"
         , "text!/Bill.io/templates/Error.tpl"
-        , "ScrollLoading"],
-    function ($, _, Backbone, Handlebars, util, ScrollLoadingCollection, ScrollLoadingTpl, ScrollLoadContentTpl, ErrorTpl, ScrollLoading) {
+        , "PullDown"],
+    function($, _, Backbone, Handlebars, util, PullDownCollection, PullDownTpl, ScrollLoadContentTpl, ErrorTpl, PullDown){
 
-        var objScrollLoadingCollection = new ScrollLoadingCollection();
+        var objPullDownCollection = new PullDownCollection();
 
-        var ScrollLoadingView = Backbone.View.extend({
+        var PullDownView = Backbone.View.extend({
             el: ".page",
-            initialize: function (attrs) {
+
+            initialize: function(attrs){
                 this.options = attrs;
                 //View listenTo put here.
             },
+
             render: function(){
                 util.switchBackgroundColor(false);
                 util.closeOverLayer();
-                util.loadHandlebarTemplate(ScrollLoadingTpl, {}, ".page");
+                util.loadHandlebarTemplate(PullDownTpl, {}, ".page");
                 util.setViewportHeight();
-                objScrollLoadingCollection.fetch({
+                objPullDownCollection.fetch({
                     success: function(collection, resp){
-                        console.dir(collection.models);
-                        console.dir(resp);
+                        console.log(collection);
+                        console.log(resp);
                         if(collection.models){
-                            util.loadHandlebarTemplate2(ScrollLoadContentTpl, resp, ".viewport");
+                            util.loadHandlebarTemplate2(ScrollLoadContentTpl, resp, ".pulldown-list");
                         }
-                        util.switchSpin(".viewport .spin");
+                        util.switchSpin(".pulldown-list .spin");
 
-                        ScrollLoading({
+                        PullDown({
                             //options defined here.
                         });
                     },
                     error: function(collection, resp){
                         console.log(collection);
                         console.log(resp);
-                        util.loadHandlebarTemplate2(ErrorTpl, resp, ".viewport");
-                        util.switchSpin(".viewport .spin");
+                        util.loadHandlebarTemplate2(ErrorTpl, resp, ".pulldown-list");
+                        util.switchSpin(".pulldown-list .spin");
                     }
                 });
             },
+
             events: {
                 "click .page-back>a": "overLayerHandler"
             },
@@ -52,5 +55,5 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
             }
         });
 
-        return ScrollLoadingView;
+        return PullDownView;
     });
