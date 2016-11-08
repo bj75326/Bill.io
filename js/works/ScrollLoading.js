@@ -170,27 +170,31 @@ define([], function(){
                     spin.setAttribute("class", spin.getAttribute("class").replace(/hidden/, "").replace(/(^\s+)|(\s+$)/g, ""));
                 }
 
-                Bin.customAjaxCall("get", null, "/Bill.io/json/scrollLoading.json", true).then(function(value){
-                    if(value["content"]){
-                        var arrContent = value["content"];
-                        var strContent = "";
-                        arrContent.forEach(function(value, index){
-                            strContent += '<div class="scrollloading-card"><section>' + (page * 20 + +value["content"])+ '</section></div>'
-                        });
-                        //console.log(strContent);
-                        Bin.parseHTMLString(strContent, viewport, spin);
-                        spin.setAttribute("class", spin.getAttribute("class").replace(/(^\s+)|(\s+$)/g, "") + " hidden");
-                        page++;
-                        loading = false;
-                    }
-                }, function(reason){
-                    if(reason){
-                        var strContent = '<div class="scrollloading-tips">加载错误>_<</div>';
-                        console.log(reason);
-                        Bin.parseHTMLString(strContent, viewport, spin);
-                        spin.setAttribute("class", spin.getAttribute("class").replace(/(^\s+)|(\s+$)/g, "") + " hidden");
-                    }
-                });
+                setTimeout(function(){
+                    Bin.customAjaxCall("get", null, "/Bill.io/json/scrollLoading.json", true).then(function(value){
+                        if(value["content"]){
+                            var arrContent = value["content"];
+                            var strContent = "";
+                            arrContent.forEach(function(value, index){
+                                strContent += '<div class="scrollloading-card"><section>' + (page * 20 + +value["content"])+ '</section></div>'
+                            });
+                            //console.log(strContent);
+                            Bin.parseHTMLString(strContent, viewport, spin);
+                            spin.setAttribute("class", spin.getAttribute("class").replace(/(^\s+)|(\s+$)/g, "") + " hidden");
+                            page++;
+                            loading = false;
+                        }
+                    }, function(reason){
+                        if(reason){
+                            var strContent = '<div class="scrollloading-tips">加载错误>_<</div>';
+                            console.log(reason);
+                            Bin.parseHTMLString(strContent, viewport, spin);
+                            spin.setAttribute("class", spin.getAttribute("class").replace(/(^\s+)|(\s+$)/g, "") + " hidden");
+                            loading = false;
+                        }
+                    });
+                }, 600);
+
             }
         };
 
