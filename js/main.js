@@ -30,7 +30,8 @@ requirejs.config({
         text : "libs/require-text/text",
         util : "util",
         ScrollLoading : "works/ScrollLoading",
-        PullDown : "works/PullDown"
+        PullDown : "works/PullDown",
+        PullUp : "works/PullUp"
     }
 });
 
