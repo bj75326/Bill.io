@@ -9,6 +9,7 @@ define(["jQuery", "Backbone"], function($, Backbone){
             'scroll-loading' : 'showScrollLoading',
             'horizontal-swipe' : 'showSwipe',
             'pull-down' : 'showPullDown',
+            'pull-up' : 'showPullUp',
             'error' : 'showError'
         },
 
@@ -37,6 +38,14 @@ define(["jQuery", "Backbone"], function($, Backbone){
             requirejs(["/Bill.io/js/views/PullDownView.js"], function(PullDownView){
                 var objPullDownView = new PullDownView();
                 objPullDownView.render();
+            });
+        },
+
+        showPullUp: function(){
+            console.log("within showPullUp...");
+            requirejs(["/Bill.io/js/views/PullUpView.js"], function(PullUpView){
+                var objPullUpView = new PullUpView();
+                objPullUpView.render();
             });
         }
 

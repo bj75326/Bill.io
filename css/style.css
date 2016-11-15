@@ -333,23 +333,32 @@ a {
 
 /*style for scrollLoading end*/
 
-/*style for pulldown start*/
-.pulldown{
+/*style for pulldown & pullup start*/
+.pulldown, .pullup{
     overflow: hidden;
 }
 
-.pulldown-content.is-dropped {
+.pulldown-content.is-dropped, .pullup-content.is-dropped {
     -webkit-transition: .2s;
     transition: .2s;
 }
 
-.pulldown-content.is-dropped-slow {
+.pulldown-content.is-dropped-slow, .pullup-content.is-dropped-slow {
     -webkit-transition: .6s;
     transition: .6s;
 }
 
 .pulldown-top {
     margin-top: -50px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.pullup-bottom {
+    margin-bottom: -50px;
     text-align: center;
     height: 50px;
     line-height: 50px;
@@ -364,12 +373,29 @@ a {
     vertical-align: middle;
 }
 
+.pullup-bottom span{
+    display: inline-block;
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+    vertical-align: middle;
+}
+
 .pulldown-top .is-rotated {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
 }
 
+.pullup-bottom .is-rotated {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
 .pulldown-top .pulldown-tips {
+    font-size: 1.1rem;
+    color: #999;
+}
+
+.pullup-bottom .pullup-tips {
     font-size: 1.1rem;
     color: #999;
 }
@@ -405,5 +431,5 @@ a {
         transform: rotate(1turn);
     }
 }
-/*style for pulldown end*/
+/*style for pulldown & pullup end*/
 

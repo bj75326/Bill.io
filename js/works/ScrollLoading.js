@@ -162,7 +162,7 @@ define([], function(){
 
             var contentHeight = viewport !== window ? viewport.scrollHeight : document.body.scrollHeight;
 
-            if((contentHeight - viewportHeight - scrollTop)/contentHeight < 0.01 && !loading){
+            if((contentHeight - viewportHeight - scrollTop)/contentHeight < 0.06 && !loading){
 
                 loading = true;
 
@@ -193,7 +193,7 @@ define([], function(){
                             loading = false;
                         }
                     });
-                }, 600);
+                }, 800);
 
             }
         };
