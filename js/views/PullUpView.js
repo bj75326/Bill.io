@@ -2,7 +2,7 @@
  * Created by Bill on 2016/11/8.
  */
 define(["jQuery", "underscore", "Backbone", "handlebars", "util"
-        ,"/Bill.io/js/Collections/PullUpCollection.js"
+        ,"/Bill.io/js/collections/PullUpCollection.js"
         ,"text!/Bill.io/templates/PullUp.tpl"
         ,"text!/Bill.io/templates/ScrollLoadContent.tpl"
         ,"text!/Bill.io/templates/Error.tpl"
