@@ -47,6 +47,14 @@ define(["jQuery", "Backbone"], function($, Backbone){
                 var objPullUpView = new PullUpView();
                 objPullUpView.render();
             });
+        },
+
+        showMenuExtension: function(){
+            console.log("within showMenuExtension...");
+            requirejs(["/Bill.io/js/views/MenuExtensionView.js"], function(MenuExtensionView){
+                var objMenuExtensionView = new MenuExtensionView();
+                objMenuExtensionView.render();
+            });
         }
 
         /*

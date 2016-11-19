@@ -83,6 +83,14 @@ define(["jQuery", "underscore", "Backbone", "handlebars"]
             }
         };
 
+        util.setInnerViewportHeight = function(elem, anotherElem){
+            var vp = document.querySelector(".viewport");
+
+            if(elem && anotherElem){
+                elem.setAttribute("style", "height: " + (vp.clientHeight - anotherElem.offsetHeight) + "px");
+            }
+        };
+
         util.cleanElement = function(el){
             var elem = document.querySelector(el);
             if(elem){
