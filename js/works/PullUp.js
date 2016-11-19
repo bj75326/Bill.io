@@ -35,7 +35,7 @@ define([], function(){
                 event.dispatchFlag = true;
                 if(customProperty){
                     for(var key in customProperty){
-                        if(key in event){
+                        if(!(key in event)){
                             event[key] = customProperty[key];
                         }
                     }

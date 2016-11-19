@@ -31,7 +31,8 @@ requirejs.config({
         util : "util",
         ScrollLoading : "works/ScrollLoading",
         PullDown : "works/PullDown",
-        PullUp : "works/PullUp"
+        PullUp : "works/PullUp",
+        MenuExtension : "works/MenuExtension"
     }
 });
 
