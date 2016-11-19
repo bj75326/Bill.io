@@ -476,14 +476,14 @@ a {
 .menuEx-foot>a span{
     display: block;
     width: 100%;
-    font-size: 6px;
+    font-size: 0.8rem;
 }
 
 .menuEx-foot.menuEx-plus>a i{
     height: 100%;
-    font-size: 2.8rem;
+    font-size: 3rem;
     color: #f07c01;
-    padding-top:6px;
+    padding-top:3px;
 }
 
 .menuEx-card {
