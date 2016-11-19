@@ -12,34 +12,6 @@
         <div class="spin">
             <i class="fa fa-spinner faa-spin animated" aria-hidden="true"></i>
         </div>
-        <div class="menuEx-overlayer"></div>
-        <div class="menuEx-popup">
-            <div class="menuEx-icons">
-                <div class="menuEx-icons-group">
-                    <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><span>文字</span></a></div>
-                    <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-picture-o" aria-hidden="true"></i><span>照片/视频</span></a></div>
-                    <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-newspaper-o" aria-hidden="true"></i><span>头条文章</span></a></div>
-                    <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-map-marker" aria-hidden="true"></i><span>签到</span></a></div>
-                    <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-video-camera" aria-hidden="true"></i><span>直播</span></a></div>
-                    <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-ellipsis-h" aria-hidden="true"></i><span>更多</span></a></div>
-                </div>
-                <div class="menuEx-icons-group">
-                    <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-comments-o" aria-hidden="true"></i><span>点评</span></a></div>
-                    <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-heart-o" aria-hidden="true"></i><span>好友圈</span></a></div>
-                    <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-music" aria-hidden="true"></i><span>音乐</span></a></div>
-                    <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>秒拍</span></a></div>
-                    <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>商品</span></a></div>
-                    <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-jpy" aria-hidden="true"></i><span>红包</span></a></div>
-                </div>
-            </div>
-            <div class="menuEx-exit">
-                <i class="fa fa-times" aria-hidden="true"></i>
-            </div>
-            <div class="menuEx-exit2">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                <i class="fa fa-times" aria-hidden="true"></i>
-            </div>
-        </div>
     </div>
     <div class="menuEx-footer">
         <div class="menuEx-foot">
@@ -71,5 +43,33 @@
                 <span>我</span>
             </a>
         </div>
+    </div>
+</div>
+<div class="menuEx-overlayer"></div>
+<div class="menuEx-popup">
+    <div class="menuEx-icons">
+        <div class="menuEx-icons-group">
+            <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><span>文字</span></a></div>
+            <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-picture-o" aria-hidden="true"></i><span>照片/视频</span></a></div>
+            <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-newspaper-o" aria-hidden="true"></i><span>头条文章</span></a></div>
+            <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-map-marker" aria-hidden="true"></i><span>签到</span></a></div>
+            <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-video-camera" aria-hidden="true"></i><span>直播</span></a></div>
+            <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-ellipsis-h" aria-hidden="true"></i><span>更多</span></a></div>
+        </div>
+        <div class="menuEx-icons-group">
+            <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-comments-o" aria-hidden="true"></i><span>点评</span></a></div>
+            <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-heart-o" aria-hidden="true"></i><span>好友圈</span></a></div>
+            <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-music" aria-hidden="true"></i><span>音乐</span></a></div>
+            <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>秒拍</span></a></div>
+            <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>商品</span></a></div>
+            <div class="menuEx-icon"><a href="javascript: void(0)"><i class="fa fa-jpy" aria-hidden="true"></i><span>红包</span></a></div>
+        </div>
+    </div>
+    <div class="menuEx-exit">
+        <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="menuEx-exit2">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        <i class="fa fa-times" aria-hidden="true"></i>
     </div>
 </div>
