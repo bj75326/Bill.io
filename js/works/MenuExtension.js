@@ -74,7 +74,7 @@ define([], function(){
          *
          */
 
-        //±äÁ¿³õÊ¼»¯
+        //å˜é‡åˆå§‹åŒ–
         var plus = options["plus"] || document.querySelector(".menuEx-plus a");
         var overLayer = options["overLayer"] || document.querySelector(".menuEx-overlayer");
         var closeIcon = options["closeIcon"] || document.querySelector(".menuEx-exit i");
