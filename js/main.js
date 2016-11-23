@@ -28,17 +28,19 @@ requirejs.config({
         FastClick : "libs/FastClick/fastclick.min",
         AppRouter : "router",
         text : "libs/require-text/text",
+        handlebarsHelper : "handlebarsHelper",
         util : "util",
         ScrollLoading : "works/ScrollLoading",
         PullDown : "works/PullDown",
         PullUp : "works/PullUp",
-        MenuExtension : "works/MenuExtension"
+        MenuExtension : "works/MenuExtension",
+        HorizontalSwipe : "works/HorizontalSwipe"
     }
 });
 
 //Start main app logic...
-requirejs(["jQuery", "underscore", "Backbone", "handlebars", "AppRouter", "FastClick", "Bin", "util"]
-, function($, _, Backbone, Handlebars, AppRouter, FastClick, Bin, util){
+requirejs(["jQuery", "underscore", "Backbone", "handlebars", "AppRouter", "FastClick", "handlebarsHelper", "util"]
+, function($, _, Backbone, Handlebars, AppRouter, FastClick, handlebarsHelper, util){
 
         //system entry...
         console.log("system entry...");

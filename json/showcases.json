@@ -21,9 +21,24 @@
       "href": "#pull-up"
     },
     {
-      "icon": "fa-exchange",
+      "icon": "fa-caret-square-o-right",
       "name": "Horizontal Swipe",
       "href": "#horizontal-swipe"
+    },
+    {
+      "icon": "fa-caret-square-o-down",
+      "name": "Vertical Swipe",
+      "href": "#vertical-swipe"
+    },
+    {
+      "icon": "fa-picture-o",
+      "name": "Lazy Loading",
+      "href": "#lazy-loading"
+    },
+    {
+      "icon": "fa-bars",
+      "name": "Cell Swipe",
+      "href": "#cell-swipe"
     }
   ],
   "canvasPractise": [

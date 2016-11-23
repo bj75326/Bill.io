@@ -132,6 +132,21 @@ a {
     text-align: center;
 }
 
+.showcases a .mask:after{
+    background-color: #000;
+    content: " ";
+    opacity: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+}
+
+.showcases a .mask:active:after{
+    opacity: .1;
+}
+
 .signature {
     margin: 1rem auto 1rem;
     font-size: 10px;
@@ -266,6 +281,7 @@ a {
     margin: 0;
     padding: 0;
     overflow: scroll;
+    position: relative;
 }
 
 .spin {
@@ -659,3 +675,102 @@ a {
     font-size: 1.8rem;
 }
 /*style for menu extension end*/
+
+/*style for Horizontal Swipe start*/
+.horizontalSwipe {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.horizontalSwipe-content {
+    position: relative;
+    width: 600%;
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.horizontalSwipe-pageView {
+    flex: 1 1 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.horizontalSwipe-pageView span{
+    display: block;
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    line-height: 2.2rem;
+    flex: 0 0 auto;
+}
+
+.horizontalSwipe-content .horizontalSwipe-pageView:nth-child(1){
+    background: -webkit-linear-gradient(#06A3EA, #2095F2);
+    background: linear-gradient(#06A3EA, #2095F2);
+}
+
+.horizontalSwipe-content .horizontalSwipe-pageView:nth-child(2){
+    background-color: #ef5350;
+}
+
+.horizontalSwipe-content .horizontalSwipe-pageView:nth-child(3){
+    background-color: #41CDDB;
+}
+
+.horizontalSwipe-content .horizontalSwipe-pageView:nth-child(4){
+    background-color: #FF8A8A;
+}
+
+.horizontalSwipe-content .horizontalSwipe-pageView:nth-child(5){
+    background-color: rgba(22, 160, 133, 0.8);
+}
+
+.horizontalSwipe-content .horizontalSwipe-pageView:nth-child(6){
+    background-color: rgba(245, 224, 80, 0.8);
+}
+
+.horizontalSwipe-pageNumber {
+    position: absolute;
+    left: 35%;
+    bottom: 5vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 30%;
+    height: 2rem;
+}
+
+.horizontalSwipe-pageNumber>div {
+    flex: 1 1 auto;
+    position: relative;
+}
+
+.horizontalSwipe-pageNumber>div:after{
+    content: "";
+    width: .4em;
+    height: .4em;
+    border-radius: 2em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -.2em;
+    margin-top: -.2em;
+    background-color: rgba(255,255,255,.5);
+}
+
+.horizontalSwipe-pageNumber>div.now:after{
+    background-color: rgba(255,255,255, 1);
+}
+/*style for Horizontal Swipe end*/
