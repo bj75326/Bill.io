@@ -4,6 +4,7 @@
             <span class="icon"><i class="fa {{this.icon}}" aria-hidden="true"></i></span>
             <span class="name">{{this.name}}</span>
             <span class="arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+            <span class="mask"></span>
         </a>
     {{/each}}
 {{else}}

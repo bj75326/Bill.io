@@ -1,15 +1,15 @@
 /**
  * Created by Bill on 2016/10/7.
  */
-define(["jQuery", "Backbone"], function($, Backbone){
+define(["jQuery", "Backbone", "util"], function($, Backbone, util){
     var AppRouter = Backbone.Router.extend({
         routes: {
             'Home' : 'showHomePage',
             'menu-extension' : 'showMenuExtension',
             'scroll-loading' : 'showScrollLoading',
-            'horizontal-swipe' : 'showSwipe',
             'pull-down' : 'showPullDown',
             'pull-up' : 'showPullUp',
+            'horizontal-swipe' : 'showHorizontalSwipe',
             'error' : 'showError'
         },
 
@@ -20,6 +20,7 @@ define(["jQuery", "Backbone"], function($, Backbone){
         showHomePage: function(){
             console.log("within showHomePage...");
             requirejs(["/Bill.io/js/views/HomePageView.js"], function(HomePageView){
+                util.formatViewEL();
                 var objHomePageView = new HomePageView();
                 objHomePageView.render();
             });
@@ -28,6 +29,7 @@ define(["jQuery", "Backbone"], function($, Backbone){
         showScrollLoading: function(){
             console.log("within showScrollLoading...");
             requirejs(["/Bill.io/js/views/ScrollLoadingView.js"], function(ScrollLoadingView){
+                util.formatViewEL();
                 var objScrollLoadingView = new ScrollLoadingView();
                 objScrollLoadingView.render();
             });
@@ -36,6 +38,7 @@ define(["jQuery", "Backbone"], function($, Backbone){
         showPullDown: function(){
             console.log("within showPullDown...");
             requirejs(["/Bill.io/js/views/PullDownView.js"], function(PullDownView){
+                util.formatViewEL();
                 var objPullDownView = new PullDownView();
                 objPullDownView.render();
             });
@@ -44,6 +47,7 @@ define(["jQuery", "Backbone"], function($, Backbone){
         showPullUp: function(){
             console.log("within showPullUp...");
             requirejs(["/Bill.io/js/views/PullUpView.js"], function(PullUpView){
+                util.formatViewEL();
                 var objPullUpView = new PullUpView();
                 objPullUpView.render();
             });
@@ -52,8 +56,18 @@ define(["jQuery", "Backbone"], function($, Backbone){
         showMenuExtension: function(){
             console.log("within showMenuExtension...");
             requirejs(["/Bill.io/js/views/MenuExtensionView.js"], function(MenuExtensionView){
+                util.formatViewEL();
                 var objMenuExtensionView = new MenuExtensionView();
                 objMenuExtensionView.render();
+            });
+        },
+
+        showHorizontalSwipe: function(){
+            console.log("within showHorizontalSwipe...");
+            requirejs(["/Bill.io/js/views/HorizontalSwipeView.js"], function(HorizontalSwipeView){
+                util.formatViewEL();
+                var objHorizontalSwipeView = new HorizontalSwipeView();
+                objHorizontalSwipeView.render();
             });
         }
 
@@ -61,6 +75,7 @@ define(["jQuery", "Backbone"], function($, Backbone){
         showError: function(){
             console.log("within showError...");
             requirejs(["/Popstate/Bill.io/js/views/ErrorView.js"], function(ErrorView){
+                util.formatViewEL();
                 var objErrorView = new ErrorView();
                 objErrorView.render();
             });

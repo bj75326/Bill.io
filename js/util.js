@@ -121,7 +121,14 @@ define(["jQuery", "underscore", "Backbone", "handlebars"]
             var overlayer = document.querySelector(".overlayer");
             overlayer.setAttribute("style", "");
             document.body.style.overflow = "hidden";
-        }
+        };
+
+        util.formatViewEL = function(){
+            var EL = document.body.querySelector(".page");
+            var newEL = document.createElement("div");
+            newEL.setAttribute("class", "page");
+            document.body.replaceChild(newEL, EL);
+        };
 
         return util;
 });

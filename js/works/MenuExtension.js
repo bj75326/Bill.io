@@ -193,6 +193,13 @@ define([], function(){
         Bin.on(closeBtn, "click", popupCloseFn, false);
         Bin.on(backBtn, "click", swipeFn, false);
         Bin.on(overLayer, "click", popupCloseFn, false);
+
+        //temp!! hashchange should remove event bind on window
+        Bin.on(window, "hashchange", function(){
+            Bin.off(window, "hashchange", arguments.callee, false);
+            Bin.off(window, "touchstart", vpTouchStartFn, false);
+            Bin.off(window, "touchmove", vpTouchMoveFn, false);
+        }, false);
     };
 
     return MenuExtension;
