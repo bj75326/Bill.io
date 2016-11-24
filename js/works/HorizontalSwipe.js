@@ -127,8 +127,8 @@ define([], function(){
                         currentPos = finalPos;
                     }
                 }
-                isTouched = false;
             }
+            isTouched = false;
             setTimeout(function(){
                 for(var i= 0, len = subs.length; i<len; i++){
                     subs[i].setAttribute("class", "");
