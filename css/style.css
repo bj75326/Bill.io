@@ -143,7 +143,11 @@ a {
     position: absolute;
 }
 
-.showcases a .mask:active:after{
+/*.showcases a .mask:active:after{
+    opacity: .1;
+}*/
+
+.showcases a.active .mask:after{
     opacity: .1;
 }
 

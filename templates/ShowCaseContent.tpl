@@ -1,6 +1,6 @@
 {{#if showCase}}
     {{#each showCase}}
-        <a class="case" href="{{this.href}}" ontouchstart="">
+        <a class="case" href="{{this.href}}">
             <span class="mask"></span>
             <span class="icon"><i class="fa {{this.icon}}" aria-hidden="true"></i></span>
             <span class="name">{{this.name}}</span>
