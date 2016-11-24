@@ -62,6 +62,10 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
                     "click .showcases>a": "overLayerHandler"
                 },
                 overLayerHandler: function(){
+                    var event = arguments[0];
+                    if(event.target.parentNode.nodeName === "A"){
+                        event.target.parentNode.setAttribute("class", event.target.parentNode.getAttribute("class") + " active");
+                    }
                     util.openOverLayer();
                     this.undelegateEvents(); //temp
                 }
