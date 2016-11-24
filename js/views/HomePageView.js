@@ -59,27 +59,17 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
                     });
                 },
                 events: {
-                    "click .showcases>a": "overLayerHandler",
-                    "touchstart .showcases>a": "addMaskHandler",
-                    "touchend .showcases>a": "removeMaskHandler"
+                    "click .showcases>a": "overLayerHandler"
+                    //"touchstart .showcases>a": "addMaskHandler",
+                    //"touchend .showcases>a": "removeMaskHandler"
                 },
                 overLayerHandler: function(){
-                    util.openOverLayer();
-                    this.undelegateEvents(); //temp
-                },
-                addMaskHandler: function(){
                     var event = arguments[0];
-                    console.log(event.target.parentNode);
                     if(event.target.parentNode.nodeName === "A"){
                         event.target.parentNode.setAttribute("class", event.target.parentNode.getAttribute("class") + " active");
                     }
-                },
-                removeMaskHandler: function(){
-                    var event = arguments[0];
-                    console.log(event.target.parentNode);
-                    if(event.target.parentNode.nodeName === "A"){
-                        event.target.parentNode.setAttribute("class", event.target.parentNode.getAttribute("class").replace(/active/g, "").replace(/(^\s+)|(\s+$)/g, ""));
-                    }
+                    util.openOverLayer();
+                    this.undelegateEvents(); //temp
                 }
             });
 
