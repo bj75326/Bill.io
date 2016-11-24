@@ -1,6 +1,6 @@
 {{#if canvasPractise}}
     {{#each canvasPractise}}
-        <a class="case" href="{{this.href}}">
+        <a class="case" href="{{this.href}}" ontouchstart="">
             <span class="mask"></span>
             <span class="icon"><i class="fa {{this.icon}}" aria-hidden="true"></i></span>
             <span class="name">{{this.name}}</span>
