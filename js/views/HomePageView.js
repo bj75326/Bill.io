@@ -64,10 +64,10 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
                     //"touchend .showcases>a": "removeMaskHandler"
                 },
                 overLayerHandler: function(){
-                    var event = arguments[0];
-                    if(event.target.parentNode.nodeName === "A"){
-                        event.target.parentNode.setAttribute("class", event.target.parentNode.getAttribute("class") + " active");
-                    }
+                    //var event = arguments[0];
+                    //if(event.target.parentNode.nodeName === "A"){
+                    //    event.target.parentNode.setAttribute("class", event.target.parentNode.getAttribute("class") + " active");
+                    //}
                     util.openOverLayer();
                     this.undelegateEvents(); //temp
                 }
