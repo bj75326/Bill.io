@@ -782,3 +782,104 @@ a {
     background-color: rgba(255,255,255, 1);
 }
 /*style for Horizontal Swipe end*/
+
+/*style for Vertical Swipe start*/
+.verticalSwipe {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.verticalSwipe-content {
+    position: relative;
+    width: 100%;
+    height: 600%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+}
+
+.verticalSwipe-pageView {
+    flex: 1 0 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.verticalSwipe-pageView span{
+    display: block;
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    line-height: 2.2rem;
+    flex: 0 0 auto;
+}
+
+.verticalSwipe-content .verticalSwipe-pageView:nth-child(1){
+    background: -webkit-linear-gradient(#06A3EA, #2095F2);
+    background: linear-gradient(#06A3EA, #2095F2);
+}
+
+.verticalSwipe-content .verticalSwipe-pageView:nth-child(2){
+    background-color: #ef5350;
+}
+
+.verticalSwipe-content .verticalSwipe-pageView:nth-child(3){
+    background-color: #41CDDB;
+}
+
+.verticalSwipe-content .verticalSwipe-pageView:nth-child(4){
+    background-color: #FF8A8A;
+}
+
+.verticalSwipe-content .verticalSwipe-pageView:nth-child(5){
+    background-color: rgba(22, 160, 133, 0.8);
+}
+
+.verticalSwipe-content .verticalSwipe-pageView:nth-child(6){
+    background-color: rgba(245, 224, 80, 0.8);
+}
+
+.verticalSwipe-pageNumber {
+    position: absolute;
+    top: 42%;
+    right: 2.5vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    width: 1rem;
+    height: 16%;
+}
+
+.verticalSwipe-pageNumber>div {
+    flex: 1 1 auto;
+    position: relative;
+}
+
+.verticalSwipe-pageNumber>div:after{
+    content: "";
+    width: .4em;
+    height: .4em;
+    border-radius: 2em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -.2em;
+    margin-top: -.2em;
+    background-color: rgba(255,255,255,.5);
+}
+
+.verticalSwipe-pageNumber>div.now:after{
+    background-color: rgba(255,255,255, 1);
+}
+/*style for Vertical Swipe end*/

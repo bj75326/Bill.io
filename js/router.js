@@ -10,6 +10,7 @@ define(["jQuery", "Backbone", "util"], function($, Backbone, util){
             'pull-down' : 'showPullDown',
             'pull-up' : 'showPullUp',
             'horizontal-swipe' : 'showHorizontalSwipe',
+            'vertical-swipe' : 'showVerticalSwipe',
             'error' : 'showError'
         },
 
@@ -68,6 +69,15 @@ define(["jQuery", "Backbone", "util"], function($, Backbone, util){
                 util.formatViewEL();
                 var objHorizontalSwipeView = new HorizontalSwipeView();
                 objHorizontalSwipeView.render();
+            });
+        },
+
+        showVerticalSwipe: function(){
+            console.log("within showVerticalSwipe...");
+            requirejs(["/Bill.io/js/views/VerticalSwipeView.js"], function(VerticalSwipeView){
+                util.formatViewEL();
+                var objVerticalSwipeView = new VerticalSwipeView();
+                objVerticalSwipeView.render();
             });
         }
 

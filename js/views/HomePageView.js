@@ -24,39 +24,49 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
                     util.switchBackgroundColor(true);
                     util.closeOverLayer();
                     util.loadHandlebarTemplate(HomePageTpl, {}, ".page");
-                    objShowCaseCollection.fetch({
-                        success: function(collection, resp){
-                            console.dir(collection.models);
-                            console.dir(resp);
-                            if(collection.models){
-                                util.loadHandlebarTemplate2(ShowCaseContentTpl, resp, ".showCase");
+                    var content = sessionStorage.getItem("showCaseContent");
+                    if(content){
+                        util.loadHandlebarTemplate2(ShowCaseContentTpl, JSON.parse(content), ".showCase");
+                        util.switchSpin(".showCase .spin");
+                        util.loadHandlebarTemplate2(CanvasContentTpl, JSON.parse(content), ".canvasPractise");
+                        util.switchSpin(".canvasPractise .spin");
+                    }else{
+                        objShowCaseCollection.fetch({
+                            success: function(collection, resp){
+                                console.dir(collection.models);
+                                console.dir(resp);
+                                if(collection.models){
+                                    sessionStorage.setItem("showCaseContent", JSON.stringify(resp));
+                                    util.loadHandlebarTemplate2(ShowCaseContentTpl, resp, ".showCase");
+                                    util.switchSpin(".showCase .spin");
+                                }
+                            },
+                            error: function(collection, resp){
+                                console.dir(collection);
+                                console.dir(resp);
+                                util.loadHandlebarTemplate2(HomePageErrorTpl, resp, ".showCase");
                                 util.switchSpin(".showCase .spin");
                             }
-                        },
-                        error: function(collection, resp){
-                            console.dir(collection);
-                            console.dir(resp);
-                            util.loadHandlebarTemplate2(HomePageErrorTpl, resp, ".showCase");
-                            util.switchSpin(".showCase .spin");
-                        }
-                    });
+                        });
 
-                    objCanvasCollection.fetch({
-                        success: function(collection, resp){
-                            console.dir(collection.models);
-                            console.dir(resp);
-                            if(collection.models){
-                                util.loadHandlebarTemplate2(CanvasContentTpl, resp, ".canvasPractise");
+                        objCanvasCollection.fetch({
+                            success: function(collection, resp){
+                                console.dir(collection.models);
+                                console.dir(resp);
+                                if(collection.models){
+                                    //sessionStorage.setItem("canvasContent", resp);
+                                    util.loadHandlebarTemplate2(CanvasContentTpl, resp, ".canvasPractise");
+                                    util.switchSpin(".canvasPractise .spin");
+                                }
+                            },
+                            error: function(collection, resp){
+                                console.dir(collection);
+                                console.dir(resp);
+                                util.loadHandlebarTemplate2(HomePageErrorTpl, resp, ".canvasPractise");
                                 util.switchSpin(".canvasPractise .spin");
                             }
-                        },
-                        error: function(collection, resp){
-                            console.dir(collection);
-                            console.dir(resp);
-                            util.loadHandlebarTemplate2(HomePageErrorTpl, resp, ".canvasPractise");
-                            util.switchSpin(".canvasPractise .spin");
-                        }
-                    });
+                        });
+                    }
                 },
                 events: {
                     "click .showcases>a": "overLayerHandler"
