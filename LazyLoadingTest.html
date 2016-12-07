@@ -77,9 +77,6 @@
                 <div class="lazyload-default">
                     <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
                 </div>
-                <div class="lazyload-default">
-                    <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
-                </div>
             </div>
             <div class="lazyload-actbar">
                 <span><i class="fa fa-heart" aria-hidden="true"></i> 12</span>
@@ -208,6 +205,12 @@
                 spin.style.display = "none";
                 this.style.display = "inline";
             }, false);
+            Bin.on(img[i], "error", function(){
+                alert("1");
+            });
+            Bin.on(img[i], "abort", function(){
+                alert("2");
+            });
         }
     });
 </script>
