@@ -35,7 +35,8 @@ requirejs.config({
         PullUp : "works/PullUp",
         MenuExtension : "works/MenuExtension",
         HorizontalSwipe : "works/HorizontalSwipe",
-        VerticalSwipe : "works/VerticalSwipe"
+        VerticalSwipe : "works/VerticalSwipe",
+        LazyLoading : "works/LazyLoading"
     }
 });
 

@@ -11,6 +11,7 @@ define(["jQuery", "Backbone", "util"], function($, Backbone, util){
             'pull-up' : 'showPullUp',
             'horizontal-swipe' : 'showHorizontalSwipe',
             'vertical-swipe' : 'showVerticalSwipe',
+            'lazy-loading' : 'showLazyLoading',
             'error' : 'showError'
         },
 
@@ -78,6 +79,15 @@ define(["jQuery", "Backbone", "util"], function($, Backbone, util){
                 util.formatViewEL();
                 var objVerticalSwipeView = new VerticalSwipeView();
                 objVerticalSwipeView.render();
+            });
+        },
+
+        showLazyLoading: function(){
+            console.log("within showLazyLoading...");
+            requirejs(["/Bill.io/js/views/LazyLoadingView.js"], function(LazyLoadingView){
+                util.formatViewEL();
+                var objLazyLoadingView = new LazyLoadingView();
+                objLazyLoadingView.render();
             });
         }
 

@@ -883,3 +883,56 @@ a {
     background-color: rgba(255,255,255, 1);
 }
 /*style for Vertical Swipe end*/
+
+/*style for LazyLoading start*/
+.lazyload-card{
+    width: 46%;
+    float: left;
+    background-color: #fff;
+    box-shadow: 0 1px 6px rgba(0,0,0,.25);
+    border-radius: 2px;
+}
+.lazyload-card:nth-child(odd){
+    margin: 1rem 1% 0 3%;
+}
+.lazyload-card:nth-child(even){
+    margin: 1rem 3% 0 1%;
+}
+
+.lazyload-imgWrapper{
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
+}
+
+.lazyload-img {
+    width: 100%;
+    display: none;
+}
+
+.lazyload-default {
+    position: absolute;
+    width: 1.6rem;
+    height: 1.6rem;
+    text-align: center;
+    line-height: 1.6rem;
+    font-size: 1.5rem;
+    color: rgb(204, 204, 204);
+    top: 50%;
+    left: 50%;
+    margin-left: -0.8rem;
+    margin-top: -0.8rem;
+}
+
+.lazyload-actbar {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 500;
+    padding: 0.7rem 0.3rem;
+    border-top: 1px solid #eee;
+}
+.lazyload-actbar span {
+    padding: 0 0.3rem;
+}
+/*style for LazyLoading end*/
