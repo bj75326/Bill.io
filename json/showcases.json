@@ -39,6 +39,21 @@
       "icon": "fa-bars",
       "name": "Cell Swipe",
       "href": "#cell-swipe"
+    },
+    {
+      "icon": "fa-window-restore",
+      "name": "Popup",
+      "href": "#popup"
+    },
+    {
+      "icon": "fa-clone",
+      "name": "Card Carousel",
+      "href": "#card-carousel"
+    },
+    {
+      "icon": "fa-link",
+      "name": "Pagination",
+      "href": "#pagination"
     }
   ],
   "canvasPractise": [

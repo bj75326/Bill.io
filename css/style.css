@@ -899,6 +899,11 @@ a {
     margin: 1rem 3% 0 1%;
 }
 
+.lazyload-card:nth-last-of-type(2),
+.lazyload-card:nth-last-of-type(3){
+    margin-bottom: 2rem;
+}
+
 .lazyload-imgWrapper{
     width: 100%;
     height: 0;
@@ -934,5 +939,22 @@ a {
 }
 .lazyload-actbar span {
     padding: 0 0.3rem;
+}
+
+.spin.lazyloading{
+    float: left;
+    width: 100%;
+    margin-top: -1rem;
+}
+
+.lazyloading-tips{
+    float: left;
+    width: 100%;
+    margin: -0.5rem auto 2rem;
+    font-size: 1.1rem;
+    color: #999;
+    text-align: center;
+    transition: opacity 2s linear;
+    opacity: 1
 }
 /*style for LazyLoading end*/

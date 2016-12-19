@@ -31,6 +31,7 @@ requirejs.config({
         handlebarsHelper : "handlebarsHelper",
         util : "util",
         ScrollLoading : "works/ScrollLoading",
+        ScrollLoadingForLzlo : "works/ScrollLoadingForLzlo",
         PullDown : "works/PullDown",
         PullUp : "works/PullUp",
         MenuExtension : "works/MenuExtension",

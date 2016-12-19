@@ -60,6 +60,30 @@ define(["jQuery", "underscore", "Backbone", "handlebars"]
             }
         };
 
+        //insertBeforeSpecificElement
+        util.loadHandlebarTemplate3 = function(htmlTemplate, jsonData, el, specificElement){
+            var compiledTemplate = Handlebars.compile(htmlTemplate);
+            var elem = document.querySelector(el);
+            var specificElem = elem.querySelector(specificElement);
+
+            if(elem && specificElem){
+                var content = compiledTemplate(jsonData);
+                var divTemp = document.createElement("div");
+                var nodes;
+                var fragment = document.createDocumentFragment();
+
+                divTemp.innerHTML = content;
+                nodes = divTemp.childNodes;
+                for(var i= 0, len=nodes.length; i<len; i++){
+                    fragment.appendChild(nodes[i].cloneNode(true));
+                }
+                elem.insertBefore(fragment, specificElem);
+
+                nodes = null;
+                fragment = null;
+            }
+        };
+
         util.switchBackgroundColor = function(homeYN){
             if(homeYN){
                 //document.documentElement.setAttribute("style", "background-color: #f2f2f2");
