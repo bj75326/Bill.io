@@ -12,7 +12,7 @@
         <div class="pullup-content">
             <div class="pullup-list">
                 <div class="spin">
-                    <i class="fa fa-spinner faa-spin animated" aria-hidden="true"></i>
+                    <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
                 </div>
             </div>
             <div class="pullup-bottom">

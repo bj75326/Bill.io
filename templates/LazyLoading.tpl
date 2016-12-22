@@ -9,6 +9,6 @@
 </div>
 <div class="viewport">
     <div class="spin lazyloading">
-        <i class="fa fa-spinner faa-spin animated" aria-hidden="true"></i>
+        <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
     </div>
 </div>

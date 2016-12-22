@@ -946,6 +946,9 @@ a {
     width: 100%;
     margin-top: -1rem;
 }
+.spin.lazyloading:nth-child(1){
+    margin-top: 0;
+}
 
 .lazyloading-tips{
     float: left;
@@ -958,3 +961,101 @@ a {
     opacity: 1
 }
 /*style for LazyLoading end*/
+
+/*style for CellSwipe start*/
+.bin-cell-wrapper {
+    position: relative;
+}
+
+.bin-cell-wrapper:before {
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 1px;
+    content: "";
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #d9d9d9;
+}
+
+.bin-cell-wrapper:after {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    content: "";
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #d9d9d9;
+}
+
+.bin-cell {
+    display: block;
+    background-color: #fff;
+    box-sizing: border-box;
+    height: 3.2rem;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    font-weight: 400;
+}
+
+.bin-cell:after{
+    position: absolute;
+    right: 0;
+    left: 0.8rem;
+    bottom: 0;
+    height: 1px;
+    content: "";
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #d9d9d9;
+}
+
+.bin-cell:last-child:after{
+    height: 0px;
+}
+
+.bin-cell-left{
+    position: absolute;
+    height: 100%;
+    left: 0;
+}
+
+.bin-cell-right{
+    position: absolute;
+    height: 100%;
+    right: 0;
+}
+
+.bin-cell-content{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 0 0.8rem;
+    line-height: 1;
+    height: 100%;
+}
+
+.bin-cell-title{
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.bin-cell-value{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+/*style for CellSwipe end*/
