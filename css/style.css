@@ -971,6 +971,7 @@ a {
     position: absolute;
     right: 0;
     left: 0;
+    top: -1px;
     height: 1px;
     content: "";
     -webkit-transform: scaleY(.5);
@@ -1015,19 +1016,24 @@ a {
 }
 
 .bin-cell:last-child:after{
-    height: 0px;
+    height: 0;
 }
 
 .bin-cell-left{
     position: absolute;
     height: 100%;
     left: 0;
+    -webkit-transform: translate3d(-100%,0,0);
+    transform: translate3d(-100%,0,0);
 }
 
 .bin-cell-right{
     position: absolute;
     height: 100%;
     right: 0;
+    top: 0;
+    -webkit-transform: translate3d(100%,0,0);
+    transform: translate3d(100%,0,0);
 }
 
 .bin-cell-content{
@@ -1058,4 +1064,29 @@ a {
     align-items: center;
 }
 
+.bin-cell-desc{
+    margin: 1.8rem 0.6rem 0.8rem;
+    font-size: 14px;
+    color: #8f8f94;
+    font-weight: normal;
+}
+
+.bin-cell-btnGroup{
+    height: 100%;
+}
+
+.bin-cell-swipe-btn{
+    display: inline-block;
+    height: 100%;
+    line-height: 3.2rem;
+    padding: 0 10px;
+}
+
+.bin-cell-swipe.bin-cell-transition .bin-cell-left,
+.bin-cell-swipe.bin-cell-transition .bin-cell-content,
+.bin-cell-swipe.bin-cell-transition .bin-cell-right{
+    -webkit-transition: -webkit-transform .15s ease-in-out;
+    transition: -webkit-transform .15s ease-in-out;
+    transition: transform .15s ease-in-out;
+}
 /*style for CellSwipe end*/

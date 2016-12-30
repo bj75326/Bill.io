@@ -12,6 +12,7 @@ define(["jQuery", "Backbone", "util"], function($, Backbone, util){
             'horizontal-swipe' : 'showHorizontalSwipe',
             'vertical-swipe' : 'showVerticalSwipe',
             'lazy-loading' : 'showLazyLoading',
+            'cell-swipe' : 'showCellSwipe',
             'error' : 'showError'
         },
 
@@ -88,6 +89,15 @@ define(["jQuery", "Backbone", "util"], function($, Backbone, util){
                 util.formatViewEL();
                 var objLazyLoadingView = new LazyLoadingView();
                 objLazyLoadingView.render();
+            });
+        },
+
+        showCellSwipe: function(){
+            console.log("within showCellSwipe...");
+            requirejs(["/Bill.io/js/views/CellSwipeView.js"], function(CellSwipeView){
+                util.formatViewEL();
+                var objCellSwipeView = new CellSwipeView();
+                objCellSwipeView.render();
             });
         }
 

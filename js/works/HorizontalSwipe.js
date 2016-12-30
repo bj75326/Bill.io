@@ -45,7 +45,7 @@ define([], function(){
     };
 
     var HorizontalSwipe = function(options){
-        /*
+        /**
          *  options parameters
          *
          */

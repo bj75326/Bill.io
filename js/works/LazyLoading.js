@@ -119,7 +119,7 @@ define([], function(){
 
     var LazyLoading = function(options){
 
-        /*
+        /**
          *
          *
          */
