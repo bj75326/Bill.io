@@ -10,8 +10,8 @@
         </div>
         <div class="bin-cell-right">
             <div class="bin-cell-btnGroup">
-                <span class="bin-cell-swipe-btn" style="background: lightgray; color: rgb(255, 255, 255);">Mark as Unread</span><!--
-                --><span class="bin-cell-swipe-btn" style="background: red; color: rgb(255, 255, 255);">Delete</span>
+                <span class="bin-cell-swipe-btn" style="background: lightgray; color: rgb(255, 255, 255); box-shadow:0 -1px lightgray;">Mark as Unread</span><!--
+                --><span class="bin-cell-swipe-btn" style="background: red; color: rgb(255, 255, 255); box-shadow:0 -1px red;">Delete</span>
             </div>
         </div>
     </a>
@@ -25,8 +25,8 @@
         </div>
         <div class="bin-cell-right">
             <div class="bin-cell-btnGroup">
-                <span class="bin-cell-swipe-btn" style="background: lightgray; color: rgb(255, 255, 255);">Mark as Unread</span><!--
-                --><span class="bin-cell-swipe-btn" style="background: red; color: rgb(255, 255, 255);">Delete</span>
+                <span class="bin-cell-swipe-btn" style="background: lightgray; color: rgb(255, 255, 255); box-shadow:0 -1px lightgray;">Mark as Unread</span><!--
+                --><span class="bin-cell-swipe-btn" style="background: red; color: rgb(255, 255, 255); box-shadow:0 -1px red;">Delete</span>
             </div>
         </div>
     </a>
@@ -40,8 +40,8 @@
         </div>
         <div class="bin-cell-right">
             <div class="bin-cell-btnGroup">
-                <span class="bin-cell-swipe-btn" style="background: lightgray; color: rgb(255, 255, 255);">Mark as Unread</span><!--
-                --><span class="bin-cell-swipe-btn" style="background: red; color: rgb(255, 255, 255);">Delete</span>
+                <span class="bin-cell-swipe-btn" style="background: lightgray; color: rgb(255, 255, 255); box-shadow:0 -1px lightgray;">Mark as Unread</span><!--
+                --><span class="bin-cell-swipe-btn" style="background: red; color: rgb(255, 255, 255); box-shadow:0 -1px red;">Delete</span>
             </div>
         </div>
     </a>
