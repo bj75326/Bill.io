@@ -26,6 +26,20 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
 
                 CellSwipe({
                     //options defined here.
+                    "wrapper" : document.querySelectorAll(".bin-cell-wrapper")[0],
+                    "direction" : "left",
+                    "cellClickHandler" : function(){
+                        console.log(1);
+                    }
+                });
+
+                CellSwipe({
+                    //options defined here.
+                    "wrapper" : document.querySelectorAll(".bin-cell-wrapper")[1],
+                    "direction" : "right",
+                    "cellClickHandler" : function(){
+                        console.log(2);
+                    }
                 });
             },
 

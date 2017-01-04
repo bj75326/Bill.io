@@ -1067,10 +1067,14 @@ a {
 }
 
 .bin-cell-desc{
-    margin: 1.8rem 0.6rem 0.8rem;
-    font-size: 14px;
+    margin: 1rem 0.6rem 0.8rem;
+    font-size: 12px;
     color: #8f8f94;
     font-weight: normal;
+}
+
+.bin-cell-desc:nth-of-type(1){
+    margin-top: 1.8rem;
 }
 
 .bin-cell-btnGroup{

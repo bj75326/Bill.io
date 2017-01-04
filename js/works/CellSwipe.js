@@ -52,8 +52,10 @@ define([], function(){
          */
 
         var wrapper = options["wrapper"] || document.querySelectorAll(".bin-cell-wrapper")[0];
-        var cells = wrapper.querySelectorAll(".bin-cell-swipe");
+
+        var cellContents = wrapper.querySelectorAll(".bin-cell-swipe .bin-cell-content");
         var direction = options["direction"] || "left";
+        var clickFn = options["cellClickHandler"];
 
         var transform = function(element, pos){
             element.style.transform = "translate3d(" + pos + "px, 0, 0)";
@@ -64,6 +66,11 @@ define([], function(){
         var isTouched = false;
         var isSwiped = false;
         var isMove = false;
+        var isClickWork = true;
+        var swipeLocked = false;
+        var scrollLocked = false;
+        var touchMoveInit = false;
+
         var swipedCell;
         var swipingCell;
         var swipingCellLBG;
@@ -80,7 +87,7 @@ define([], function(){
                 isTouched = true;
                 isMove = false;
                 var event = ev||window.event;
-                event.preventDefault();
+                //event.preventDefault();
                 if(isSwiped && swipedCell){
                     var leftBtnGroup = swipedCell.querySelector(".bin-cell-left");
                     var rightBtnGroup = swipedCell.querySelector(".bin-cell-right");
@@ -93,15 +100,18 @@ define([], function(){
                     isSwiped = false;
                     swipedCell = null;
                     swipingCell = null;
+
+                    isClickWork = false;
                 }else{
                     var touch = event.touches[0];
                     startX = touch.pageX;
                     startY = touch.pageY;
                     timestamp = +new Date();
-                    swipingCell = this;
+                    isClickWork = true;
+                    swipingCellContent = this;
+                    swipingCell = swipingCellContent.parentNode;
                     swipingCellLBG = swipingCell.querySelector(".bin-cell-left");
                     swipingCellRBG = swipingCell.querySelector(".bin-cell-right");
-                    swipingCellContent = swipingCell.querySelector(".bin-cell-content");
                     swipingCellLBG_width = swipingCellLBG.clientWidth;
                     swipingCellRBG_width = swipingCellRBG.clientWidth;
                     swipingCell.setAttribute("class", swipingCell.getAttribute("class").replace(/bin-cell-transition/g, "").replace(/(^\s+)|(\s+$)/g, ""));
@@ -114,30 +124,40 @@ define([], function(){
         var cellTouchMoveFn = function(ev){
             if(isTouched && swipingCell){
                 var event = ev || window.event;
-                event.preventDefault();
                 var touch = event.touches[0];
                 var deltaX = touch.pageX - startX;
                 var deltaY = touch.pageY - startY;
 
-                if(direction === "left"){
-                    if(deltaX <= 0 && deltaX >= -swipingCellRBG_width){
-                        transform(swipingCellLBG, -swipingCellLBG_width + deltaX);
-                        transform(swipingCellRBG, swipingCellRBG_width + deltaX);
-                        transform(swipingCellContent, deltaX);
-                        isMove = true;
-                        swipeDistance = deltaX;
-                        //console.log("moved");
-                    }
-                }else if(direction === "right"){
-                    if(deltaX >=0 && deltaX <= swipingCellLBG_width){
-                        transform(swipingCellLBG, -swipingCellLBG_width + deltaX);
-                        transform(swipingCellRBG, swipingCellRBG_width + deltaX);
-                        transform(swipingCellContent, deltaX);
-                        isMove = true;
-                        swipeDistance = deltaX;
+                if(!touchMoveInit){
+                    touchMoveInit = true;
+                    if(Math.abs(deltaX) > Math.abs(deltaY)){
+                        scrollLocked = true;
+                    }else{
+                        swipeLocked = true;
                     }
                 }
 
+                if(!swipeLocked && scrollLocked){
+                    event.preventDefault();
+                    if(direction === "left"){
+                        if(deltaX <= 0 && deltaX >= -swipingCellRBG_width){
+                            transform(swipingCellLBG, -swipingCellLBG_width + deltaX);
+                            transform(swipingCellRBG, swipingCellRBG_width + deltaX);
+                            transform(swipingCellContent, deltaX);
+                            isMove = true;
+                            swipeDistance = deltaX;
+                            //console.log("moved");
+                        }
+                    }else if(direction === "right"){
+                        if(deltaX >=0 && deltaX <= swipingCellLBG_width){
+                            transform(swipingCellLBG, -swipingCellLBG_width + deltaX);
+                            transform(swipingCellRBG, swipingCellRBG_width + deltaX);
+                            transform(swipingCellContent, deltaX);
+                            isMove = true;
+                            swipeDistance = deltaX;
+                        }
+                    }
+                }
             }
         };
 
@@ -145,7 +165,7 @@ define([], function(){
         var cellTouchEndFn = function(ev){
             if(isTouched && swipingCell && isMove){
                 var event = ev || window.event;
-                event.preventDefault();
+                //event.preventDefault();
                 var deltaTime = +new Date() - timestamp;
                 swipingCell.setAttribute("class", swipingCell.getAttribute("class").replace(/bin-cell-transition/g, "").replace(/(^\s+)|(\s+$)/g, "") + " bin-cell-transition");
 
@@ -194,6 +214,9 @@ define([], function(){
                 }
             }
             isTouched = false;
+            touchMoveInit = false;
+            swipeLocked = false;
+            scrollLocked = false;
             swipingCell = null;
             swipingCellLBG = null;
             swipingCellRBG = null;
@@ -202,16 +225,30 @@ define([], function(){
             swipingCellRBG_width = undefined;
         };
 
+        var cellClickFn = function(ev){
+            var event = ev||window.event;
+            if(isClickWork){
+                if(clickFn){
+                    clickFn.apply(this, arguments);
+                }
+            }else{
+                event.preventDefault();
+            }
+        };
+
         //bind
         var i, len;
-        for(i= 0, len=cells.length; i<len; i++){
-            Bin.on(cells[i], "touchstart", cellTouchStartFn, false);
+        for(i= 0, len=cellContents.length; i<len; i++){
+            Bin.on(cellContents[i], "touchstart", cellTouchStartFn, false);
         }
-        for(i= 0, len=cells.length; i<len; i++){
-            Bin.on(cells[i], "touchmove", cellTouchMoveFn, false);
+        for(i= 0, len=cellContents.length; i<len; i++){
+            Bin.on(cellContents[i], "touchmove", cellTouchMoveFn, false);
         }
-        for(i= 0, len=cells.length; i<len; i++){
-            Bin.on(cells[i], "touchend", cellTouchEndFn, false);
+        for(i= 0, len=cellContents.length; i<len; i++){
+            Bin.on(cellContents[i], "touchend", cellTouchEndFn, false);
+        }
+        for(i= 0, len=cellContents.length; i<len; i++){
+            Bin.on(cellContents[i], "click", cellClickFn, false);
         }
     };
 
