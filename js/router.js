@@ -13,6 +13,7 @@ define(["jQuery", "Backbone", "util"], function($, Backbone, util){
             'vertical-swipe' : 'showVerticalSwipe',
             'lazy-loading' : 'showLazyLoading',
             'cell-swipe' : 'showCellSwipe',
+            'dialog-box' : 'showDialogBox',
             'error' : 'showError'
         },
 
@@ -98,6 +99,15 @@ define(["jQuery", "Backbone", "util"], function($, Backbone, util){
                 util.formatViewEL();
                 var objCellSwipeView = new CellSwipeView();
                 objCellSwipeView.render();
+            });
+        },
+
+        showDialogBox: function(){
+            console.log("within showDialogBox...");
+            requirejs(["/Bill.io/js/views/DialogBoxView.js"], function(DialogBoxView){
+                util.formatViewEL();
+                var objDialogBoxView = new DialogBoxView();
+                objDialogBoxView.render();
             });
         }
 

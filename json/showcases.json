@@ -41,9 +41,9 @@
       "href": "#cell-swipe"
     },
     {
-      "icon": "fa-window-restore",
-      "name": "Popup",
-      "href": "#popup"
+      "icon": "fa-comment-o",
+      "name": "Dialog Box",
+      "href": "#dialog-box"
     },
     {
       "icon": "fa-clone",

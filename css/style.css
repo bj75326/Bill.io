@@ -1096,3 +1096,54 @@ a {
     transition: transform .15s ease-in-out;
 }
 /*style for CellSwipe end*/
+
+/*style for DialogBox start*/
+.dialogbox-wrapper {
+    position: absolute;
+    width: 100%;
+    padding: 0 1.5rem;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.dialogbox-button{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: block;
+    width: 100%;
+    color: #656b79;
+    background-color: #f6f8fa;
+    box-shadow: 0 0 2px #b8bbbf;
+    border: 0;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    height: 3rem;
+    position: relative;
+}
+
+.dialogbox-button:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+.dialogbox-button>label{
+    font-family: 'RobotoDraft', 'Roboto', "Microsoft Yahei", sans-serif;
+}
+
+.dialogbox-button:after{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    content: "";
+    background-color: #000;
+}
+
+.dialogbox-button:active:after{
+    opacity: 0.3;
+}
+/*style for DialogBox end*/

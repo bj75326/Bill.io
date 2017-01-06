@@ -38,7 +38,8 @@ requirejs.config({
         HorizontalSwipe : "works/HorizontalSwipe",
         VerticalSwipe : "works/VerticalSwipe",
         LazyLoading : "works/LazyLoading",
-        CellSwipe : "works/CellSwipe"
+        CellSwipe : "works/CellSwipe",
+        DialogBox : "works/DialogBox"
     }
 });
 
