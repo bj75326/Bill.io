@@ -24,9 +24,31 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
                 util.loadHandlebarTemplate2(DialogBoxContentTpl, {}, ".viewport");
                 util.switchSpin(".viewport .spin");
 
-                DialogBox({
+                var alert = new DialogBox({
                     //options defined here.
+                    wrapper: '.page',
+
+                    container: {
+                        header : '提示',
+                        content : {
+                            message: '欢迎来到Bill.io！'
+                        },
+                        footer : [{
+                            text : "确认",
+                            fn : "yesFn",
+                            highlight : true
+                        }]
+                    },
+
+                    yesFn: function(){
+                        console.log(this);
+                    }
                 });
+
+                var alertBtn = document.querySelectorAll(".dialogbox-button")[0];
+                alertBtn.addEventListener("click", function(){
+                    alert.open();
+                }, false);
             },
 
             events: {

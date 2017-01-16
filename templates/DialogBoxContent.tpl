@@ -1,4 +1,4 @@
-<div class="dialogbox-wrapper">
+<div class="dialogbox-btn-wrapper">
     <button class="dialogbox-button">
         <label class="dialogbox-button-text">Alert</label>
     </button>
