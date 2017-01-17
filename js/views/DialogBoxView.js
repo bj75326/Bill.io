@@ -41,13 +41,80 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
                     },
 
                     yesFn: function(){
-                        console.log(this);
+                        this.close();
+                    }
+                });
+
+                var confirm = new DialogBox({
+                    wrapper: '.page',
+
+                    container: {
+                        header : '提示',
+                        content : {
+                            message: '确认执行此操作？'
+                        },
+                        footer : [{
+                            text: '取消',
+                            fn : 'noFn'
+                        },{
+                            text: '确认',
+                            fn : 'yesFn',
+                            highlight : true
+                        }]
+                    },
+
+                    yesFn: function(){
+                        this.close();
+                    },
+
+                    noFn: function(){
+                        this.close();
+                    }
+                });
+
+                var prompt = new DialogBox({
+                    wrapper: '.page',
+
+                    container: {
+                        header : '提示',
+                        content : {
+                            message: '请输入姓名：',
+                            input: {
+                                name: 'name',
+                                placeholder: '',
+                                validator: 'validator'
+                            }
+                        },
+                        footer : [{
+                            text: '取消',
+                            fn: 'noFn'
+                        },{
+                            text: '确认',
+                            fn: 'yesFn',
+                            highlight: true
+                        }]
+                    },
+
+                    yesFn: function(){
+                        this.close();
+                    },
+
+                    noFn: function(){
+                        this.close();
                     }
                 });
 
                 var alertBtn = document.querySelectorAll(".dialogbox-button")[0];
+                var confirmBtn = document.querySelectorAll(".dialogbox-button")[1];
+                var promptBtn = document.querySelectorAll(".dialogbox-button")[2];
                 alertBtn.addEventListener("click", function(){
                     alert.open();
+                }, false);
+                confirmBtn.addEventListener("click", function(){
+                    confirm.open();
+                }, false);
+                promptBtn.addEventListener("click", function(){
+                    prompt.open();
                 }, false);
             },
 

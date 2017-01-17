@@ -117,9 +117,6 @@ define([], function(){
                     text : "确认",
                     fn : "yesFn",
                     highlight : true
-                },{
-                    text : "取消",
-                    fn : "noFn"
                 }]
             },
             yesFn : function(){
@@ -212,7 +209,7 @@ define([], function(){
                 this.fragment = fragment.appendChild(dialogbox);
 
             }else{
-                //render base on defaultOptions.container
+                throw new TypeError("Bill.io_DialogBox_Container_TypeError...");
             }
         },
 
@@ -261,11 +258,20 @@ define([], function(){
             this.wrapper.style.display = "block";
             setTimeout(function(){
                 that.wrapper.querySelector(".dialogbox").className = "dialogbox";
-            }, 100);
+            }, 20);
         },
 
         close: function(){
+            var that = this;
+            this.wrapper.querySelector(".dialogbox").className = "dialogbox dialogbox-bounce-leave";
 
+            setTimeout(function(){
+                while(that.wrapper.lastChild){
+                    that.wrapper.removeChild(that.wrapper.lastChild);
+                }
+                that.overlayer.style.display = "";
+                that.wrapper.style.display = "";
+            }, 200);
         }
     };
 
