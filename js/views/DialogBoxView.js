@@ -69,7 +69,9 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
 
                     noFn: function(){
                         this.close();
-                    }
+                    },
+
+                    overlayerForClose: true
                 });
 
                 var prompt = new DialogBox({
@@ -101,12 +103,28 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
 
                     noFn: function(){
                         this.close();
+                    },
+
+                    overlayerForClose: true
+                });
+
+                var custom = new DialogBox({
+                    wrapper: '.page',
+                    container: '<div class="custom-dialogbox"><h2>Custom Box</h2><p>Hear me roar.</p></div>',
+                    overlayerForClose: true,
+                    events: {
+                        "click .custom-dialogbox": "closeFn"
+                    },
+                    closeFn: function(){
+                        this.close();
                     }
                 });
 
-                var alertBtn = document.querySelectorAll(".dialogbox-button")[0];
-                var confirmBtn = document.querySelectorAll(".dialogbox-button")[1];
-                var promptBtn = document.querySelectorAll(".dialogbox-button")[2];
+                var buttons = document.querySelectorAll(".dialogbox-button");
+                var alertBtn = buttons[0];
+                var confirmBtn = buttons[1];
+                var promptBtn = buttons[2];
+                var customBtn = buttons[3];
                 alertBtn.addEventListener("click", function(){
                     alert.open();
                 }, false);
@@ -115,6 +133,9 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
                 }, false);
                 promptBtn.addEventListener("click", function(){
                     prompt.open();
+                }, false);
+                customBtn.addEventListener("click", function(){
+                    custom.animate_open();
                 }, false);
             },
 

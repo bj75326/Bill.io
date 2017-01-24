@@ -1171,6 +1171,47 @@ a {
     transition: .2s;
 }
 
+.custom-dialogbox{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%,-500%,0);
+    transform: translate3d(-50%,-500%,0);
+    animation: roadRunnerIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    background-color: #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #fff;
+    padding: 3rem;
+    width: 18rem;
+    text-align: center;
+}
+
+@keyframes roadRunnerIn{
+    0% {
+        transform: translate3d(-50%, -500%, 0) scaleY(1.2);
+    }
+
+    70% {
+        transform: translate3d(-50%, -0%, 0) scaleY(1.2);
+    }
+
+    100% {
+        transform: translate3d(-50%, -50%, 0) scaleY(1);
+    }
+}
+
+.custom-dialogbox h2{
+    font-size: 1.4rem;
+    line-height: 1rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+}
+.custom-dialogbox p{
+    font-size: 1.2rem;
+}
+
 .dialogbox-header{
     padding: 15px 0 0;
 }
@@ -1252,7 +1293,7 @@ a {
 }
 
 .dialogbox-btn.highlight{
-   color: #f0943f;
+    color: #f0943f;
 }
 
 .dialogbox-overlayer{
@@ -1277,5 +1318,13 @@ a {
     opacity: 0;
     -webkit-transform: translate3d(-50%, -50%, 0) scale(0.9);
             transform: translate3d(-50%, -50%, 0) scale(0.9);
+}
+
+.custom-dialogbox-bounce-enter{
+
+}
+
+.custom-dialogbox-bounce-leave{
+
 }
 /*style for DialogBox end*/

@@ -128,23 +128,33 @@ define([], function(){
             validator : function(){
                 console.log(this);
             },
-            wrapper : "body"
+            wrapper : "body",
+
+            overlayerForClose : false,
+
+            enter_effect : "dialogbox-bounce-enter",
+
+            leave_effect : "dialogbox-bounce-leave"
         },
 
         render: function(){
             var that = this;
             if(typeof this.options.container === "string"){
-                var divTemp = document.querySelector("div");
+                var divTemp = document.createElement("div");
                 var nodes;
                 var fragment = document.createDocumentFragment();
                 divTemp.innerHTML = this.options.container;
                 nodes = divTemp.childNodes;
-                for(var i= 0, len=nodes.length; i<len; i++){
-                    fragment.appendChild(nodes[i].cloneNode(true));
+                if(nodes.length === 1){
+                    this.fragment = fragment.appendChild(nodes[0]);
+                }else{
+                    this.fragment = fragment.appendChild(divTemp);
                 }
-                this.fragment = fragment;
                 nodes = null;
                 fragment = null;
+                //when typeof container was string, another parameter required for event binding
+
+
             }else if(Object.prototype.toString.call(this.options.container).slice(8, -1) === "Object"){
                 var fragment = document.createDocumentFragment();
                 var dialogbox = document.createElement("div");
@@ -205,7 +215,6 @@ define([], function(){
                     }
                     dialogbox.appendChild(footer);
                 }
-
                 this.fragment = fragment.appendChild(dialogbox);
 
             }else{
@@ -252,26 +261,66 @@ define([], function(){
             }
             this.wrapper.appendChild(this.fragment);
 
-            this.wrapper.querySelector(".dialogbox").className = "dialogbox dialogbox-bounce-enter";
+            var dialogbox = this.wrapper.childNodes[0];
+            var originalClass = dialogbox.className;
+            dialogbox.className += " " + this.options.enter_effect;
 
             this.overlayer.style.display = "block";
             this.wrapper.style.display = "block";
+
+            if(this.options.overlayerForClose === true){
+                this.closeFnForOverlayer = (function(){
+                    this.close();
+                }).bind(this);
+                Bin.on(this.overlayer, "click", this.closeFnForOverlayer, false);
+            }
             setTimeout(function(){
-                that.wrapper.querySelector(".dialogbox").className = "dialogbox";
+                dialogbox.className = originalClass;
             }, 20);
         },
 
         close: function(){
             var that = this;
-            this.wrapper.querySelector(".dialogbox").className = "dialogbox dialogbox-bounce-leave";
 
+            var dialogbox = this.wrapper.childNodes[0];
+            var originalClass = dialogbox.className;
+            dialogbox.className += " " + this.options.leave_effect;
+
+            if(this.options.overlayerForClose === true){
+                Bin.off(this.overlayer, "click", this.closeFnForOverlayer, false);
+            }
             setTimeout(function(){
                 while(that.wrapper.lastChild){
                     that.wrapper.removeChild(that.wrapper.lastChild);
                 }
                 that.overlayer.style.display = "";
                 that.wrapper.style.display = "";
+                dialogbox.className = originalClass;
             }, 200);
+        },
+
+        animate_open: function(){
+            var that = this;
+            while(this.wrapper.lastChild){
+                this.wrapper.removeChild(this.wrapper.lastChild);
+            }
+            this.wrapper.appendChild(this.fragment);
+            var dialogbox = this.wrapper.childNodes[0];
+
+            this.wrapper.style.display = "block";
+            this.overlayer.style.display = "block";
+
+            if(this.options.overlayerForClose === true){
+                this.closeFnForOverlayer = (function(){
+                    this.animate_close();
+                }).bind(this);
+                Bin.on(this.overlayer, "click", this.closeFnForOverlayer, false);
+            }
+        },
+
+        animate_close: function(){
+            var that = this;
+
         }
     };
 
