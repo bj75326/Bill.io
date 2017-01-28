@@ -117,9 +117,15 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
                     },
                     closeFn: function(){
                         this.close();
-                    }
+                    },
+                    enter_effect: "custom-dialogbox-bounce-enter",
+                    leave_effect: "custom-dialogbox-bounce-leave"
                 });
 
+                console.log(alert);
+                console.log(confirm);
+                console.log(prompt);
+                console.log(custom);
                 var buttons = document.querySelectorAll(".dialogbox-button");
                 var alertBtn = buttons[0];
                 var confirmBtn = buttons[1];

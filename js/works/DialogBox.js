@@ -108,10 +108,10 @@ define([], function(){
                 content : {
                     message: '欢迎来到Bill.io！'
                     /*input: {
-                        name: '',
-                        placeholder: '',
-                        validator: 'validator'
-                    }*/
+                     name: '',
+                     placeholder: '',
+                     validator: 'validator'
+                     }*/
                 },
                 footer : [{
                     text : "确认",
@@ -152,6 +152,7 @@ define([], function(){
                 }
                 nodes = null;
                 fragment = null;
+                //this.originalClass = this.fragment.className;
                 //when typeof container was string, another parameter required for event binding
 
 
@@ -259,7 +260,7 @@ define([], function(){
             while(this.wrapper.lastChild){
                 this.wrapper.removeChild(this.wrapper.lastChild);
             }
-            this.wrapper.appendChild(this.fragment);
+            this.wrapper.appendChild(this.fragment.cloneNode(true));
 
             var dialogbox = this.wrapper.childNodes[0];
             var originalClass = dialogbox.className;
@@ -283,7 +284,7 @@ define([], function(){
             var that = this;
 
             var dialogbox = this.wrapper.childNodes[0];
-            var originalClass = dialogbox.className;
+            //var originalClass = dialogbox.className;
             dialogbox.className += " " + this.options.leave_effect;
 
             if(this.options.overlayerForClose === true){
@@ -295,7 +296,6 @@ define([], function(){
                 }
                 that.overlayer.style.display = "";
                 that.wrapper.style.display = "";
-                dialogbox.className = originalClass;
             }, 200);
         },
 
@@ -304,8 +304,9 @@ define([], function(){
             while(this.wrapper.lastChild){
                 this.wrapper.removeChild(this.wrapper.lastChild);
             }
-            this.wrapper.appendChild(this.fragment);
+            this.wrapper.appendChild(this.fragment.cloneNode(true));
             var dialogbox = this.wrapper.childNodes[0];
+            dialogbox.className += " " + this.options.enter_effect;
 
             this.wrapper.style.display = "block";
             this.overlayer.style.display = "block";
@@ -320,7 +321,20 @@ define([], function(){
 
         animate_close: function(){
             var that = this;
+            var dialogbox = this.wrapper.childNodes[0];
+            dialogbox.className = dialogbox.className.replace(this.options.enter_effect, "").replace(/(^\s+)|(\s+$)/g, "");
+            dialogbox.className += " " + this.options.leave_effect;
+            if(this.options.overlayerForClose === true){
+                Bin.off(this.overlayer, "click", this.closeFnForOverlayer, false);
+            }
 
+            setTimeout(function(){
+                while(that.wrapper.lastChild){
+                    that.wrapper.removeChild(that.wrapper.lastChild);
+                }
+                that.wrapper.style.display = "";
+                that.overlayer.style.display = "";
+            }, 500);
         }
     };
 
