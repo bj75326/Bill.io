@@ -34,6 +34,7 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
                             message: '欢迎来到Bill.io！'
                         },
                         footer : [{
+                            id : "btn1",
                             text : "确认",
                             fn : "yesFn",
                             highlight : true
@@ -54,9 +55,11 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
                             message: '确认执行此操作？'
                         },
                         footer : [{
+                            id : 'btn1',
                             text: '取消',
                             fn : 'noFn'
                         },{
+                            id : 'btn2',
                             text: '确认',
                             fn : 'yesFn',
                             highlight : true
@@ -88,9 +91,11 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
                             }
                         },
                         footer : [{
+                            id: 'btn1',
                             text: '取消',
                             fn: 'noFn'
                         },{
+                            id: 'btn2',
                             text: '确认',
                             fn: 'yesFn',
                             highlight: true
@@ -113,19 +118,15 @@ define(["jQuery", "underscore", "Backbone", "handlebars", "util"
                     container: '<div class="custom-dialogbox"><h2>Custom Box</h2><p>Hear me roar.</p></div>',
                     overlayerForClose: true,
                     events: {
-                        "click .custom-dialogbox": "closeFn"
+                        "click+.custom-dialogbox": "closeFn"
                     },
                     closeFn: function(){
-                        this.close();
+                        this.animate_close();
                     },
                     enter_effect: "custom-dialogbox-bounce-enter",
                     leave_effect: "custom-dialogbox-bounce-leave"
                 });
 
-                console.log(alert);
-                console.log(confirm);
-                console.log(prompt);
-                console.log(custom);
                 var buttons = document.querySelectorAll(".dialogbox-button");
                 var alertBtn = buttons[0];
                 var confirmBtn = buttons[1];

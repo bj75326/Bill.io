@@ -46,6 +46,11 @@
       "href": "#dialog-box"
     },
     {
+      "icon": "fa-check-square-o",
+      "name": "Toast",
+      "href": "#toast"
+    },
+    {
       "icon": "fa-clone",
       "name": "Card Carousel",
       "href": "#card-carousel"

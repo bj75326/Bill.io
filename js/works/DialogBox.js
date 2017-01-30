@@ -114,6 +114,7 @@ define([], function(){
                      }*/
                 },
                 footer : [{
+                    id : "btn1",
                     text : "确认",
                     fn : "yesFn",
                     highlight : true
@@ -201,17 +202,18 @@ define([], function(){
                     for(var i= 0, len=this.options.container["footer"].length;i<len;i++){
                         btnInfo = this.options.container["footer"][i];
                         button = document.createElement("button");
+                        button.id = btnInfo["id"];
                         button.innerHTML = btnInfo["text"];
                         if(btnInfo["highlight"]){
                             button.className = "dialogbox-btn highlight";
                         }else{
                             button.className = "dialogbox-btn";
                         }
-                        if(btnInfo["fn"] && this.options[btnInfo["fn"]]){
+                        /*if(btnInfo["fn"] && this.options[btnInfo["fn"]]){
                             Bin.on(button, "click", function(){
                                 that.options[btnInfo["fn"]].apply(that, arguments);
                             }, false);
-                        }
+                        }*/
                         footer.appendChild(button);
                     }
                     dialogbox.appendChild(footer);
@@ -275,6 +277,18 @@ define([], function(){
                 }).bind(this);
                 Bin.on(this.overlayer, "click", this.closeFnForOverlayer, false);
             }
+
+            if(this.options.container["footer"] && this.options.container["footer"].length){
+                var btnInfo;
+                for(var i= 0, len=this.options.container["footer"].length; i<len; i++){
+                    btnInfo = this.options.container["footer"][i];
+                    if(btnInfo["fn"] && this.options[btnInfo["fn"]]){
+                        Bin.on(this.wrapper.querySelector("#" + btnInfo["id"]), "click", function(){
+                            that.options[btnInfo["fn"]].apply(that, arguments);
+                        }, false);
+                    }
+                }
+            }
             setTimeout(function(){
                 dialogbox.className = originalClass;
             }, 20);
@@ -316,6 +330,21 @@ define([], function(){
                     this.animate_close();
                 }).bind(this);
                 Bin.on(this.overlayer, "click", this.closeFnForOverlayer, false);
+            }
+
+            //if parameter has property - 'events'
+            if(this.options.events){
+                var props = Object.keys(this.options.events);
+                props.forEach(function(value){
+                    var arr = value.split("+");
+                    var eventType = arr[0];
+                    var selector = arr[1];
+                    if(that.options[that.options.events[value]]){
+                        Bin.on(that.wrapper.querySelector(selector), eventType, function(){
+                            that.options[that.options.events[value]].apply(that, arguments);
+                        }, false);
+                    }
+                });
             }
         },
 
