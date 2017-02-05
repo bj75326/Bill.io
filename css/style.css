@@ -120,6 +120,11 @@ a {
     font-size: 1.4rem;
 }
 
+.showcases a span:nth-child(1) i{
+    width: 1.6rem;
+    text-align: center;
+}
+
 .showcases a span:nth-child(2){
     flex: 1 1 80%;
     font-size: 1.1rem;
@@ -127,7 +132,7 @@ a {
 }
 
 .showcases a span:nth-child(3){
-    flex: 1 1 10%;
+    flex: 0 1 1.4rem;
     color: #f0943f;
     text-align: center;
 }
@@ -1343,3 +1348,49 @@ a {
 }
 
 /*style for DialogBox end*/
+
+/*style for Toast start*/
+.bin-cell-withIcon {
+
+}
+
+.bin-cell-withIcon i{
+    margin-right: .5rem;
+    color: #f07c01;
+    width: 1.6rem;
+    text-align: center;
+}
+
+.bin-cell-withIcon i.text-muted{
+    color: #999;
+}
+.bin-cell-withIcon i.text-success{
+    color: #4cb452;
+}
+.bin-cell-withIcon i.text-danger{
+    color: #f97964;
+}
+.bin-cell-withIcon i.text-warning{
+    color: #fab83a;
+}
+
+.bin-cell-withIcon span{
+    font-size: 1rem;
+}
+
+.bin-cell-allow-right {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    width: 1rem;
+    height: 1.2rem;
+    margin-top: -.6rem;
+    line-height: 1.2rem;
+    text-align: center;
+    color: #818a91;
+}
+
+.bin-cell:active{
+    background-color: #f2f2f2;
+}
+/*style for Toast end*/

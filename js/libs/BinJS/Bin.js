@@ -19,7 +19,7 @@ var Bin = {
         return dest;
     },
 
-    extend: function (dest /*, any numbers of objects*/){  //¸´ÖÆsource¶ÔÏóÖĞµÄËùÓĞÊôĞÔ¸²¸Çµ½destination¶ÔÏóÉÏ£¬²¢ÇÒ·µ»Ø destination ¶ÔÏó. ¸´ÖÆÊÇ°´Ë³ĞòµÄ, ËùÒÔºóÃæµÄ¶ÔÏóÊôĞÔ»á°ÑÇ°ÃæµÄ¶ÔÏóÊôĞÔ¸²¸Çµô(Èç¹ûÓĞÖØ¸´).
+    extend: function (dest /*, any numbers of objects*/){  //ï¿½ï¿½ï¿½ï¿½sourceï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½Çµï¿½destinationï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½ï¿½ï¿½ï¿½Ò·ï¿½ï¿½ï¿½ destination ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Ë³ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ôºï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô»ï¿½ï¿½Ç°ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½Çµï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½).
         var sources = Array.prototype.slice.call(arguments, 1).reverse();
 
         for(var i= 0, len= sources.length; i<len; i++){
@@ -409,7 +409,7 @@ var Bin = {
 //some use cases, pls ignore when import Bin.js
 
 /**
- * mixinÊµÏÖ¶àÀà¼Ì³Ğ
+ * mixinÊµï¿½Ö¶ï¿½ï¿½ï¿½Ì³ï¿½
  */
 var A = function () {
     function SuperClass() {
@@ -444,7 +444,7 @@ var A = function () {
 };
 
 /**
- * Object.Create ÊµÏÖµ¥¸¸Àà¼Ì³Ğ
+ * Object.Create Êµï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½
  */
 var B = function(){
     function SuperClass(){

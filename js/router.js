@@ -14,6 +14,7 @@ define(["jQuery", "Backbone", "util"], function($, Backbone, util){
             'lazy-loading' : 'showLazyLoading',
             'cell-swipe' : 'showCellSwipe',
             'dialog-box' : 'showDialogBox',
+            'toast' : 'showToast',
             'error' : 'showError'
         },
 
@@ -108,6 +109,15 @@ define(["jQuery", "Backbone", "util"], function($, Backbone, util){
                 util.formatViewEL();
                 var objDialogBoxView = new DialogBoxView();
                 objDialogBoxView.render();
+            });
+        },
+
+        showToast: function(){
+            console.log("within showToast...");
+            requirejs(["/Bill.io/js/views/ToastView.js"], function(ToastView){
+                util.formatViewEL();
+                var objToastView = new ToastView();
+                objToastView.render();
             });
         }
 
